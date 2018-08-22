@@ -5,7 +5,7 @@
 
 from models.base_model import BaseModel
 from models.user import User
-from models.Record import Record
+from models.record import Record
 import os
 
 classes = {"User": User, "BaseModel": BaseModel,
