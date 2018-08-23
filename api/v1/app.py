@@ -30,6 +30,13 @@ def page_not_found_404(e):
     '''
     return jsonify({"error": "Not found"}), 404
 
+@app.after_request
+def after_request(response):
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+    response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
+  return response
+
 
 if __name__ == "__main__":
     host = os.getenv("HBNB_API_HOST")

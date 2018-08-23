@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>jmg runner</title>
+</head>
+<body>
+
+<div class="button all_users" onclick="loadDoc()" id='users_panel;'></div>
+<div class="panel users"></div>
+<div class="panel records"></div>
+<div class="panel new"></div>
+<div class="panel timer"></div>
+<div class="panel time"></div>
+
+<script type="text/javascript">
+    
+    function loadDoc() {
+        let url = "http://localhost:5000/api/v1/users"
+        let xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+              document.getElementById("users_panel").innerHTML = this.responseText;
+            }
+        };
+    
+        xhttp.open("GET", url, true);
+        xhttp.send();
+    }
+</script>
+
+</body>
+</html>
