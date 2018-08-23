@@ -30,6 +30,7 @@ def post_method(body):
     new_user = models.classes["User"]()
     for k, v in body.items():
         setattr(new_user, k, v)
+    models.storage.new(new_user)
     models.storage.save()
     return new_user.to_dict()
 
