@@ -19,7 +19,7 @@ def get_method_user(user_id=None):
             return None
         records = [x.to_dict() for x in user.records]
         if len(records) == 0:
-            return None
+            return []
         return records
 
 
