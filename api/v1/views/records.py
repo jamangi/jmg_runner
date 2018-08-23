@@ -43,6 +43,7 @@ def post_method(user_id, body):
     old_user = get_method_user(user_id)
     if old_user is None:
         return None
+    setattr(old_user, "record_num", old_user.record_num + 1)
     new_record = models.classes["Record"]()
     setattr(new_record, "user_id", user_id)
     for k, v in body.items():

@@ -59,8 +59,8 @@ def delete_method(id):
     return {}
 
 
-@app_views.route('/users/', methods=['POST', 'GET', 'PUT', 'DELETE'])
-@app_views.route('/users/<id>', methods=['POST', 'GET', 'PUT', 'DELETE'])
+@app_views.route('/users/', methods=['POST', 'GET'])
+@app_views.route('/users/<id>', methods=['GET', 'PUT', 'DELETE'])
 def users_main(id=None):
     '''
         This will ...
@@ -72,10 +72,12 @@ def users_main(id=None):
         return jsonify(result)
 
     elif request.method == 'POST':
+        require = ["username", "password", "first_name", "last_name"]
         if not request.json:
             abort(400, "Not a JSON")
-        if "name" not in request.json:
-            abort(400, "Missing name")
+        for req in require:
+            if req not in request.json:
+                abort(400, "Missing required input: {}".format(req))
         body = request.get_json()
         result = post_method(body)
         return jsonify(result), 201
