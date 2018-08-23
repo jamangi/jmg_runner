@@ -6,8 +6,8 @@
 </head>
 <body>
 
-<div class="button all_users" onclick="loadDoc()" id='users_panel;'></div>
-<div class="panel users"></div>
+<div class="button all_users" onclick="loadDoc()" id='users_button'></div>
+<div class="panel users" id='users_panel'></div>
 <div class="panel records"></div>
 <div class="panel new"></div>
 <div class="panel timer"></div>
@@ -20,7 +20,16 @@
         let xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-              document.getElementById("users_panel").innerHTML = this.responseText;
+                let obj_list = JSON.parse(this.responseText)
+                panel = document.getElementById("users_panel")
+                for (let user of obj_list) {
+                    console.log({user})
+                    li = document.createElement('li')
+                    li.innerHTML = user.username
+                    panel.append(li)
+                }
+                
+              
             }
         };
     
