@@ -9,7 +9,13 @@ import React, { Component } from 'react';
 
 // This is a es6 stateless function
 const Navbar = () => 
- <h1> Navbar </h1>;
+ <div className="ui inverted menu">
+ <div className="ui container">
+  <a href="#" class="header item">JMG - Runner</a>
+  <a href="#" class="item"></a>
+ </div>
+
+ </div> 
 
 
 
