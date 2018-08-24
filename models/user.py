@@ -11,7 +11,6 @@ class User(BaseModel):
         Definition of the User class
     '''
     username = ''
-    password = ''
     first_name = ''
     last_name = ''
     record_num = 1

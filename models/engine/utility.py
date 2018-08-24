@@ -32,11 +32,11 @@ def load_test_data(choice="file", overwrite=True):
         for ele in getall.values():
             models.storage.delete(ele)
 
-    users = [('Alabama', 'password', "Allie", "Bama"), 
-             ('Arizona', 'password', "Arie", "Zona"), 
-             ('Washington', 'password', "Washi", "Tony"), 
-             ('Texas', 'password', "Tea", "Xena"), 
-             ('California', 'password', "Calie", "Fornia")]
+    users = [('Alabama', "Allie", "Bama"), 
+             ('Arizona', "Arie", "Zona"), 
+             ('Washington', "Washi", "Tony"), 
+             ('Texas', "Tea", "Xena"), 
+             ('California', "Calie", "Fornia")]
 
     records = [()]
 
@@ -45,9 +45,8 @@ def load_test_data(choice="file", overwrite=True):
         for user in users:
             new_user = models.User()
             setattr(new_user, "username", user[0])
-            setattr(new_user, "password", user[1])
-            setattr(new_user, "first_name", user[2])
-            setattr(new_user, "last_name", user[3])
+            setattr(new_user, "first_name", user[1])
+            setattr(new_user, "last_name", user[2])
             fs.new(new_user)
         fs.save()
 

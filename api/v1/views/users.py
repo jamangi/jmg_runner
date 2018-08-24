@@ -73,7 +73,7 @@ def users_main(id=None):
         return jsonify(result)
 
     elif request.method == 'POST':
-        require = ["username", "password", "first_name", "last_name"]
+        require = ["username", "first_name", "last_name"]
         if not request.json:
             abort(400, "Not a JSON")
         for req in require:
