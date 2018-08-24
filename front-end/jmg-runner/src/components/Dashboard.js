@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import avatar from './assets/img/elliot.jpg';
+import { Link } from "react-router-dom";
+import axios from "axios";
 // function Navbar() {
 //   render() {
 //     return <h1> Navbar </h1>;
@@ -15,6 +17,29 @@ import avatar from './assets/img/elliot.jpg';
 class Dashboard extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+          runners: []
+        }
+        
+
+  }
+
+  componentDidMount() {
+    // axios.get(`http://web-01.dockerhearts.online:5000/api/v1/routes`)
+    //   .then(res => {
+    //     console.log(res);
+    //   })
+      axios.get(`http://web-01.dockerhearts.online:5000/api/v1/users`)
+      .then(res => {
+        console.log(res.data);
+
+
+        this.setState({runners:res.data})
+
+      }).catch((error) =>{
+        alert(error);
+      })
+
   }
 
 
@@ -25,7 +50,7 @@ class Dashboard extends React.Component {
 
             <div className="row">
 
-              <div class="column eight wide">
+              <div className="column six wide">
               { /*card */}
                 <div className="ui card">
                   <div className="image">
@@ -48,67 +73,64 @@ class Dashboard extends React.Component {
                   </div>
                 </div>
 
-                  <button className="ui inverted red button">Record</button>
-
-
-                <hr />
-
-
+                  
+                  <Link to="/stopwatch">Record</Link>
 
               </div>
 
 
-              <div class="column eight wide">
+              <div className="column two wide">
+                <div>
+                  <Link to="/create">Create</Link>
+                </div>
+                <div>
+                  <Link to="/update">Update</Link>
+                </div>
+                <div>
+                  <Link to="/delete">Delete</Link>
+                </div>
+              </div>
+
+
+              <div class="column six wide">
               { /* table */}
 
-
-                  <table class="ui  table">
+                  <table class="ui table">
                     <thead>
                       <tr>
-                        <th>Name</th>
-                        <th>Time</th>
-                        <th>Distance</th>
-                        <th>Calorie</th>
+                        <th>User</th>
+                        <th>Created At</th>
+                        <th>First Name</th>
+                        <th>id</th>
+                        <th>last name</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>
-                          <div class="ui ribbon label">First</div>
-                        </td>
-                        <td>Cell</td>
-                        <td>Cell</td>
-                      </tr>
-                      <tr class="positive">
-                        <td>Cell</td>
-                        <td>Cell</td>
-                        <td>Cell</td>
-                      </tr>
-                      <tr class="error">
-                        <td>Cell</td>
-                        <td>Cell</td>
-                        <td>Cell</td>
-                      </tr>
-
-                      <tr class="positive">
-                        <td>Cell</td>
-                        <td>Cell</td>
-                        <td>Cell</td>
-                      </tr>
-
+                    {
+                     this.state.runners.map(row => (
+                          <tr className="positive">
+                            <td>{row.record_num}</td>
+                            <td>{row.created_at}</td>
+                            <td>{row.first_name}</td>
+                            <td>{row.id}</td>
+                            <td>{row.last_name}</td>
+                          </tr>    
+                        )
+                     )
+                    }    
                     </tbody>
                     <tfoot>
-                      <tr><th colspan="3">
-                        <div class="ui right floated pagination menu">
-                          <a class="icon item">
-                            <i class="left chevron icon"></i>
+                      <tr><th colSpan="3">
+                        <div className="ui right floated pagination menu">
+                          <a className="icon item">
+                            <i className="left chevron icon"></i>
                           </a>
-                          <a class="item">1</a>
-                          <a class="item">2</a>
-                          <a class="item">3</a>
-                          <a class="item">4</a>
-                          <a class="icon item">
-                            <i class="right chevron icon"></i>
+                          <a className="item">1</a>
+                          <a className="item">2</a>
+                          <a className="item">3</a>
+                          <a className="item">4</a>
+                          <a className="icon item">
+                            <i className="right chevron icon"></i>
                           </a>
                         </div>
                       </th>

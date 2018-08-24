@@ -1,49 +1,90 @@
 import React, { Component } from 'react';
-
-// function Navbar() {
-//   render() {
-//     return <h1> Navbar </h1>;
-//   }
-// }
+import { Link } from "react-router-dom";
 
 
-// This is a es6 stateless function
+const formattedSeconds = (sec) =>
+   Math.floor(sec / 60) +
+    ':' +
+  ('0' + sec % 60).slice(-2)
+
+// This 
 class Stopwatch extends Component {
 
+      constructor(props) {
+        super(props)
 
 
-  render() {
-    return (
-      <div className="row">
+        this.state = {
+          secondsElapsed: 0,
+          laps:[],
+          lastClearedIncrementer: null
+        }
+        this.incrementer = null;
+
+      }
+      
+      // start button
+      handleStartClick() {
+        this.incrementer = setInterval( () => 
+        this.setState({secondsElapsed: this.state.secondsElapsed + 1
+            }), 500);
         
+      }
 
-         <div className="ui card">
-        <div className="content">
-          <div className="header">
-            Record
-          </div>
-          <div className="meta">
-            <h1 id="timer"><time>00:00:00</time></h1>
+      handleStopClick() {
+        clearInterval(this.incrementer);
+        this.setState({
+          lastCleared: this.incrementer
+        })
+      }
 
-          </div>
-          </div>
+      handleResetClick() {
+        clearInterval(this.incrementer);
+        this.setState({
+          secondsElapsed: 0,
+          laps:[]
+        })
+      }
+
+      handleLabClick() {
+        this.setState({
+          laps: this.state.laps.concat([this.state.secondsElapsed])
+        })
+      }
+
+ 
+      render() {
+        return(
+
+        <div className="ui card">
           <div className="content">
-            <button className="ui inverted red button" id="start">start</button>
-            <button className="ui inverted red button" id="stop">stop</button>
-            <button className="ui inverted red button" id="clear">clear</button>
-          </div>
-          <div className="content extra">
-            <button className="ui button" type="button" name="button">Back to Dashboard</button>
-          </div>
-      </div>
+            <div className="header">
+              Record
+            </div>
+            <div className="meta">
+              <h1 id="timer">{formattedSeconds(this.state.secondsElapsed)}</h1>          
+            </div>
+            </div>
+            <div className="content">
+              
+                 <button className="ui button" onClick={this.handleStartClick.bind(this)}>start</button>
+                 <button className="ui button" onClick={this.handleStopClick.bind(this)}>stop</button>
+                 <button className="ui button" onClick={this.handleResetClick.bind(this)}>reset</button>
+                
+              
 
+            </div>
+            <div className="content extra">
+              
+              <Link to="/">Back</Link>
+            </div>
+        </div>
 
-      </div>
-    );
-  }
+        )
+      }
 }
-
-
+      
+      
 
 
 export default Stopwatch;
