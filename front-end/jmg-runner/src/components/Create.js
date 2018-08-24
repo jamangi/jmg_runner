@@ -14,7 +14,6 @@ class Create extends React.Component {
       id:"",
       last_name: "",
       password: 1234,
-
     }
      this.handleChange = this.handleChange.bind(this);
      this.handleSubmit = this.handleSubmit.bind(this);  
@@ -105,7 +104,7 @@ class Create extends React.Component {
         </div>
 
         <button class="ui button" type="submit" >Submit</button>
-        <Link to="/dashboard"> Back </Link>
+        <Link to="/"> Back </Link>
       </form>
 
     );

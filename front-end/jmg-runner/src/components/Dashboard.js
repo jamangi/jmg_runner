@@ -3,6 +3,7 @@ import avatar from './assets/img/elliot.jpg';
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Create from "./Create";
+import Update from "./Update";
 
 
 // This is a ES6 Class
@@ -10,13 +11,13 @@ class Dashboard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-          runners: []
+          runners: [],
+
         }
         
   }
 
   componentDidMount() {
-
       axios.get(`http://web-01.dockerhearts.online:5000/api/v1/users`)
       .then(res => {
         console.log(res.data);
@@ -24,7 +25,6 @@ class Dashboard extends React.Component {
       }).catch((error) =>{
         alert(error);
       })
-
   }
 
 
@@ -35,7 +35,7 @@ class Dashboard extends React.Component {
 
             <div className="row">
 
-              <div className="column five wide">
+              <div className="column four wide">
               { /*card */}
                 <div className="ui card">
                   <div className="image">
@@ -58,23 +58,14 @@ class Dashboard extends React.Component {
                   </div>
                 </div>
                   
-               <button className="ui button"><Link to="/stopwatch">Record</Link></button>
+               <button className="ui button"><Link to="/Stopwatch">Record</Link></button>
+               
+               <button className="ui button"><Link to="/create">Create</Link></button>
+               
 
               </div>
 
-              <div className="column one wide">
-                <div>
-                  <Link to="/create">Create</Link>
-                </div>
-                <div>
-                  <Link to="/update">Update</Link>
-                </div>
-                <div>
-                  <Link to="/delete">Delete</Link>
-                </div>
-              </div>
-
-              <div class="column eight">
+              <div class="column twelve wide">
               { /* table */}
 
                   <table class="ui table">
@@ -85,8 +76,8 @@ class Dashboard extends React.Component {
                         <th>First Name</th>
                         <th>id</th>
                         <th>last name</th>
-                        <th>Update</th>
-                        <th>Delete</th>
+                        <th></th>
+                        <th></th>
                       </tr>
                     </thead>
                     <tbody>
@@ -98,8 +89,8 @@ class Dashboard extends React.Component {
                             <td>{row.first_name}</td>
                             <td>{row.id}</td>
                             <td>{row.last_name}</td>
-                            <td><button className="ui button"><Link to="/delete" user-id={row.id}>Delete</Link></button></td>
-                            <td><button className="ui button"><Link to="/delete" user-id={row.id}>Update</Link></button></td>
+                            <td><button className="ui button"><Link to="/delete" userid={row.id}>Delete</Link></button></td> 
+                            <td><button className="ui button"><Link to="/update" userid={row.id}>Update</Link></button></td>
                           </tr>    
                         )
                      )
