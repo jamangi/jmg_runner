@@ -5,3 +5,4 @@ from api.v1.views.index import *
 # import api.v1.views.states as states
 from api.v1.views import records
 from api.v1.views import users
+from api.v1.views import routes

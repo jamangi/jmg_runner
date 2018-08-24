@@ -60,7 +60,7 @@ def delete_method(id):
     return {}
 
 
-@app_views.route('/users/', methods=['POST', 'GET'])
+@app_views.route('/users', methods=['POST', 'GET'])
 @app_views.route('/users/<id>', methods=['GET', 'PUT', 'DELETE'])
 def users_main(id=None):
     '''
