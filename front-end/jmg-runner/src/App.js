@@ -10,7 +10,6 @@ import Update from "./components/Update";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 // This is a react class component. 
-
 class App extends Component {
   render() {
     return (
@@ -23,7 +22,7 @@ class App extends Component {
               <Route exact path="/stopwatch" component={Stopwatch} />
               <Route exact path="/create" component={Create} />
               <Route exact path="/delete" component={Delete} />
-              <Route exact path="update" component={Update} />
+              <Route exact path="/update" component={Update} />
             </div>
           </Router>
 

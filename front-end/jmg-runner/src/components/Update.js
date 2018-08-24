@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-
-class Create extends React.Component {
+import { Link } from "react-router-dom";
+    
+class Update extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
 
-
     }
-
 
   }
 
@@ -15,7 +14,7 @@ class Create extends React.Component {
     return (
       <form onSubmit={this.handleSubmit} className="ui form">
 
-        <label>Create New User</label>
+        <h1>Update User</h1>
 
         <div className="field">
           <label>
@@ -26,19 +25,24 @@ class Create extends React.Component {
 
         <div className="field">
           <label>
-            Password:
+            Created At:
             <input type="text" value={this.state.value} onChange={this.handleChange} />
           </label>
         </div>
         
+        <div className="field">
+          <label>
+            <input type="text" value={this.state.value} onChange={this.handleChange} />
+          </label>
+        </div>
 
         <button class="ui button" type="submit">Submit</button>
-        
+        <Link to="/dashboard"> Back </Link>
       </form>
-      
+
     );
   }
 }
 
 
-export default Create;
+export default Update;

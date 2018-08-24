@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 
 class Delete extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-
 
     }
 
@@ -15,23 +15,17 @@ class Delete extends React.Component {
     return (
       <form onSubmit={this.handleSubmit} className="ui form">
 
-        <div className="field">
-          <label>
-            Username:
-            <input type="text" value={this.state.value} onChange={this.handleChange} />
-          </label>
-        </div>
+        <h1>Delete User</h1>
 
         <div className="field">
           <label>
-            Password:
+            ID:
             <input type="text" value={this.state.value} onChange={this.handleChange} />
           </label>
         </div>
-        
 
         <button class="ui button" type="submit">Submit</button>
-        
+        <Link to="/dashboard"> Back </Link>
       </form>
     );
   }
