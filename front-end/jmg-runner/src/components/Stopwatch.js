@@ -33,7 +33,7 @@ class Stopwatch extends Component {
             <button className="ui inverted red button" id="clear">clear</button>
           </div>
           <div className="content extra">
-            <button className="ui button" type="button" name="button">Read More</button>
+            <button className="ui button" type="button" name="button">Back to Dashboard</button>
           </div>
       </div>
 

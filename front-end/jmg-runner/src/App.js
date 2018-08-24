@@ -17,7 +17,13 @@ class App extends Component {
 
         <hr/>
 
+        <Dashboard />
+
+        <hr/>
+
         <Stopwatch />
+
+
 
         <hr/>
 
