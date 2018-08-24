@@ -86,8 +86,6 @@ def users_main(id=None):
     elif request.method == 'PUT':
         if not request.json:
             abort(400, "Not a JSON")
-        if "name" not in request.json:
-            abort(400, "Missing name")
         body = request.get_json()
         result = put_method(id, body)
         if result is None:

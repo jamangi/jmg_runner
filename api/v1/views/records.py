@@ -99,8 +99,6 @@ def records_main(record_id=None, user_id=None):
     elif request.method == 'POST':
         if not request.json:
             abort(400, "Not a JSON")
-        if "name" not in request.json:
-            abort(400, "Missing name")
         body = request.get_json()
         result = post_method(user_id, body)
         if result is None:
