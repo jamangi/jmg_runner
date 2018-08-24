@@ -20,18 +20,18 @@ def show_routes():
         {"route": "/users",
          "methods": "['GET', 'POST']",
          "description": "Get all users, or create a new user",
-         "details":'Post must send ["username", "password", "first_name", "last_name"]'},
+         "details":"Post must send ['username', 'first_name', 'last_name']"},
         {"route": "/users/<id>",
          "methods": "['GET', 'PUT', 'DELETE']",
          "description": "Get, Update, or Delete one user",
-         "details":'Put can modify ["username", "password", "first_name", "last_name"]'},
+         "details":"Put can modify ['username', 'first_name', 'last_name']"},
         {"route": "/users/<user_id>/records",
          "methods": "['GET', 'POST']",
          "description": "Get all of one user's records, or create a new record",
-         "details":'Post must send ["username", "password", "first_name", "last_name"]'},
+         "details":"Post must send ['username', 'first_name', 'last_name']"},
         {"route": "/records/<record_id>",
          "methods": "['GET', 'PUT', 'DELETE']",
          "description": "Get, Update, or Delete a specified record",
-         "details":'Put can modify ["username", "password", "first_name", "last_name"]'}
+         "details":"Put can modify ['username', 'first_name', 'last_name']"}
     ]
     return jsonify(route_dict)
