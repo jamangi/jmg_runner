@@ -6,7 +6,7 @@ To provide a brief introduction to React.js
 
 ## Technologies 
 ### API
-We created a homemade api which will provide the app with interactive data. The api is publically available, so you can create and delete records in the database from home.
+We built an api which will provide the app with interactive data. The api is publically available, so you can create and delete records in the database from home.
 #### From Browser
 ![from browser](https://github.com/jamangi/jmg_runner/blob/master/gifs/browser_get.gif)
 #### From Terminal
