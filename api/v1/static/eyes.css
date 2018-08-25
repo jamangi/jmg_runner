@@ -1,0 +1,165 @@
+/*
+	Dark Blue: #0d3b66
+	Blonde: #faf0ca
+	Yellow: #f4d35e
+	Orange: #ee964b
+	Angry Orange: #f95738
+*/
+
+:root {
+	--Dark_Blue: #0d3b66;
+	--Blonde: #faf0ca;
+	--Yellow: #f4d35e;
+	--Orange: #ee964b;
+	--Angry_Orange: #f95738;
+}
+
+body {
+	background: var(--Dark_Blue);
+}
+
+div {
+	position: relative;
+	left: 35%;
+}
+
+.main {
+	position: absolute;
+	left:40px;
+	top:-120px;
+}
+
+.content {
+	position: absolute;
+	height: 300px;
+	width: 450px;
+	left: 35%;
+	/*border: 1px solid var(--Orange);*/
+
+	font-size: 30px;
+	color: var(--Blonde);
+
+	display:grid;
+}
+
+#react {
+	position: relative;
+	font-size: 100px;
+	left: 20px;
+	top:45px;
+}
+
+a {
+	color: var(--Angry_Orange);
+}
+
+#agenda, #links {
+	top:500px;
+}
+
+#agenda div, #links div {
+	left: 0;
+}
+
+#links {
+	opacity: 1;
+}
+
+#agenda {
+	opacity: 0;
+}
+
+
+.eyes {
+	top: 320px;
+
+	height: 150px;
+	width: 400px;
+	border: 1px solid var(--Blonde);
+	background: url("./flirty.png");
+	background-position: top left;
+	background-size: 800px;
+	background-repeat: no-repeat;
+
+}
+
+@keyframes blink {
+	100% {}
+	70% {
+		background: url("./flirty.png");
+		background-position: top left;
+		background-size: 800px;
+	}
+
+	67% {
+		background: url("./finakky closed.png");
+		background-position: top left;
+		background-size: 800px;
+	}
+
+	66% {
+		background: url("./flirty.png");
+		background-position: top left;
+		background-size: 800px;		
+	}
+
+	55% {
+
+		background: url("./flirty.png");
+		background-position: top left;
+		background-size: 800px;
+	}
+	
+	24% {}
+	
+	0% {}
+}
+
+@keyframes poke {
+	0% {
+		background: url("./finakky closed.png");
+		background-position: top left;
+		background-size: 800px;
+	}
+
+	100% {
+		background: url("./finakky closed.png");
+		background-position: top left;
+		background-size: 800px;
+	}
+}
+
+@keyframes fade_in {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes fade_out {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+.eyes {
+	animation: blink 4s ease-in-out infinite;
+}
+
+.eyes:hover {
+	animation: poke 1s ease-in-out infinite;
+	animation-delay: 0.05s;
+}
+
+.eyes:hover ~ #agenda {
+	animation: fade_in 1s ease-in-out infinite;
+}
+
+.eyes:hover ~ #links {
+	animation: fade_out 1s ease-in-out infinite;
+}
