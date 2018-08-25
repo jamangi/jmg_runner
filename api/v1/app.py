@@ -2,7 +2,7 @@
 '''
     This module contains our entry point of our flask application.
 '''
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
 from models import storage
 from flask_cors import CORS
 from api.v1.views import app_views
@@ -14,6 +14,10 @@ app.register_blueprint(app_views, url_prefix="/api/v1")
 app.config["JSONIFY_PRETTYPRINT_REGULAR"] = True
 cors = CORS(app, resources={r"/*": {"origins": "0.0.0.0"}})
 
+
+@app.route('/')
+def react():
+    return render_template("eyes.html")
 
 @app.teardown_appcontext
 def close(err):
