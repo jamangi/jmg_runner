@@ -13,7 +13,7 @@ We created a homemade api which will provide the app with interactive data. The 
 ![from terminal GET](https://github.com/jamangi/jmg_runner/blob/master/gifs/curl_get.gif)
 * For POST and PUT methods, you'll need to set the Content-Type header to "application/json"
 * On windows, you'll need to escape the quotes used inside the body of the POST and PUT requests
-![from terminal POST](https://github.com/jamangi/jmg_runner/blob/master/gifs/curl_get.gif)
+![from terminal POST](https://github.com/jamangi/jmg_runner/blob/master/gifs/curl_post.gif)
 #### From React
 []()
 
