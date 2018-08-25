@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 // function Navbar() {
 //   render() {
 //     return <h1> Navbar </h1>;
@@ -10,8 +10,8 @@ import React, { Component } from 'react';
 const Navbar = () => 
  <div className="ui inverted menu">
  <div className="ui container">
-  <a href="/" class="header item">JMG - Runner</a>
-  <a href="#" class="item">Insert Logo</a>
+  <a href="/" className="header item">JMG - Runner</a>
+  <a href="" className="item">Insert Logo</a>
  </div>
 
  </div> 

@@ -6,14 +6,14 @@ import React, { Component } from 'react';
 const Footer = () => 
   <div className="ui inverted vertical footer segment">
 
-  <div class="ui center aligned container">
+  <div className="ui center aligned container">
         <a className="item" href="#">JMG-Runner (Insert Logo)</a>
       <div className="ui inverted section divider"></div>
           <div className="ui horizontal inverted small divided link list">
-            <a className="item" href="#">Site Map</a>
-            <a className="item" href="#">Contact Us</a>
-            <a className="item" href="#">Terms and Conditions</a>
-            <a className="item" href="#">Privacy Policy</a>
+            <a className="item" href="">Site Map</a>
+            <a className="item" href="">Contact Us</a>
+            <a className="item" href="">Terms and Conditions</a>
+            <a className="item" href="">Privacy Policy</a>
           </div>
     </div>
   </div>
